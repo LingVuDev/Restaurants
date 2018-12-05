@@ -13,6 +13,8 @@
 		3D8E4B1821B5D71E0088580B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8E4B1721B5D71E0088580B /* Assets.xcassets */; };
 		3D8E4B2621B5D71E0088580B /* RestaurantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B2521B5D71E0088580B /* RestaurantsTests.swift */; };
 		3D8E4B3521B646170088580B /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3421B646170088580B /* UIView+Anchor.swift */; };
+		3D8E4B3821B79BFF0088580B /* FeaturedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3721B79BFF0088580B /* FeaturedController.swift */; };
+		3D8E4B3A21B79C900088580B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3921B79C900088580B /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		3D8E4B2521B5D71E0088580B /* RestaurantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTests.swift; sourceTree = "<group>"; };
 		3D8E4B2721B5D71E0088580B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8E4B3421B646170088580B /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
+		3D8E4B3721B79BFF0088580B /* FeaturedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedController.swift; sourceTree = "<group>"; };
+		3D8E4B3921B79C900088580B /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		3D8E4B0C21B5D71B0088580B /* Restaurants */ = {
 			isa = PBXGroup;
 			children = (
+				3D8E4B3621B79BED0088580B /* Home */,
 				3D8E4B3321B645C40088580B /* Model */,
 				3D8E4B3221B645AD0088580B /* Network */,
 				3D8E4B3121B5DA470088580B /* Utils */,
@@ -126,6 +131,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3D8E4B3621B79BED0088580B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3D8E4B3721B79BFF0088580B /* FeaturedController.swift */,
+				3D8E4B3921B79C900088580B /* CategoryCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +245,8 @@
 				3D8E4B3521B646170088580B /* UIView+Anchor.swift in Sources */,
 				3D8E4B0E21B5D71B0088580B /* AppDelegate.swift in Sources */,
 				3D8E4B1621B5D71B0088580B /* Restaurants.xcdatamodeld in Sources */,
+				3D8E4B3821B79BFF0088580B /* FeaturedController.swift in Sources */,
+				3D8E4B3A21B79C900088580B /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
