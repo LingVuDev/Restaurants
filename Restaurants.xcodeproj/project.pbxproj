@@ -15,6 +15,8 @@
 		3D8E4B3521B646170088580B /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3421B646170088580B /* UIView+Anchor.swift */; };
 		3D8E4B3821B79BFF0088580B /* FeaturedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3721B79BFF0088580B /* FeaturedController.swift */; };
 		3D8E4B3A21B79C900088580B /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3921B79C900088580B /* CategoryCell.swift */; };
+		3D8E4B3C21B8F3280088580B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3B21B8F3280088580B /* Colors.swift */; };
+		3D8E4B3E21B8F3D40088580B /* AttributedString+append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B3D21B8F3D40088580B /* AttributedString+append.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		3D8E4B3421B646170088580B /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		3D8E4B3721B79BFF0088580B /* FeaturedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedController.swift; sourceTree = "<group>"; };
 		3D8E4B3921B79C900088580B /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		3D8E4B3B21B8F3280088580B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3D8E4B3D21B8F3D40088580B /* AttributedString+append.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+append.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				3D8E4B3421B646170088580B /* UIView+Anchor.swift */,
+				3D8E4B3B21B8F3280088580B /* Colors.swift */,
+				3D8E4B3D21B8F3D40088580B /* AttributedString+append.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -243,7 +249,9 @@
 			files = (
 				3D8E4B1021B5D71B0088580B /* MainViewController.swift in Sources */,
 				3D8E4B3521B646170088580B /* UIView+Anchor.swift in Sources */,
+				3D8E4B3E21B8F3D40088580B /* AttributedString+append.swift in Sources */,
 				3D8E4B0E21B5D71B0088580B /* AppDelegate.swift in Sources */,
+				3D8E4B3C21B8F3280088580B /* Colors.swift in Sources */,
 				3D8E4B1621B5D71B0088580B /* Restaurants.xcdatamodeld in Sources */,
 				3D8E4B3821B79BFF0088580B /* FeaturedController.swift in Sources */,
 				3D8E4B3A21B79C900088580B /* CategoryCell.swift in Sources */,

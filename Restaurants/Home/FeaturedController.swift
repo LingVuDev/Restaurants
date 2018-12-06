@@ -17,6 +17,7 @@ class FeaturedController: UICollectionViewController, UICollectionViewDelegateFl
         
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = .white
+        collectionView.alwaysBounceVertical = true
         navigationItem.title = "Featured"
     }
     
@@ -32,7 +33,7 @@ class FeaturedController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 150)
+        return CGSize(width: view.frame.width, height: 216)
     }
     
     
