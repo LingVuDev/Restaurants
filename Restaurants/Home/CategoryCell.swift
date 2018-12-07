@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -81,7 +82,7 @@ class FeaturedCell: UICollectionViewCell {
     
     let containerView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 4
+        view.layer.cornerRadius = 8
         view.clipsToBounds = true
         return view
     }()
@@ -109,6 +110,27 @@ class FeaturedCell: UICollectionViewCell {
         return textView
     }()
     
+    lazy var ratingView: CosmosView = {
+        let cosmosView = CosmosView()
+//        cosmosView.settings.filledImage = #imageLiteral(resourceName: "starFilled").withRenderingMode(.alwaysOriginal)
+//        cosmosView.settings.emptyImage = #imageLiteral(resourceName: "star").withRenderingMode(.alwaysOriginal)
+        cosmosView.settings.fillMode = .precise
+        cosmosView.settings.totalStars = 5
+        cosmosView.settings.starSize = 14
+        cosmosView.settings.starMargin = 3.3
+        
+        cosmosView.settings.updateOnTouch = false
+        cosmosView.rating = 5
+        return cosmosView
+    }()
+    
+    lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        let attributedText = NSMutableAttributedString()
+        attributedText.appendBold(text: "5,50 €", size: 14, color: .white)
+        label.attributedText = attributedText
+        return label
+    }()
     
     func setupViews() {
         addSubview(containerView)
@@ -123,5 +145,11 @@ class FeaturedCell: UICollectionViewCell {
         
         containerView.addSubview(nameView)
         nameView.anchor(top: informationFrameView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: (informationFrameHeight / 2))
+        
+        containerView.addSubview(ratingView)
+        ratingView.anchor(top: nameView.bottomAnchor, left: nameView.leftAnchor, bottom: informationFrameView.bottomAnchor, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8, width: 0, height: 0)
+        
+        containerView.addSubview(priceLabel)
+        priceLabel.anchor(top: nameView.bottomAnchor, left: ratingView.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8, width: 0, height: 0)
     }
 }
