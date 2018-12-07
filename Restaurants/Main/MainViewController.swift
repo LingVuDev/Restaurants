@@ -16,7 +16,7 @@ class MainViewController: UITabBarController {
     }
     
     func setupViewController() {
-        let homeController = templateNavController(unselectedImage: #imageLiteral(resourceName: "star"), selectedImage: #imageLiteral(resourceName: "star"), rootViewController: UIViewController())
+        let featuredController = templateNavController(unselectedImage: #imageLiteral(resourceName: "star"), selectedImage: #imageLiteral(resourceName: "star"), rootViewController: FeaturedController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         let menuController = templateNavController(unselectedImage: #imageLiteral(resourceName: "food"), selectedImage: #imageLiteral(resourceName: "food"), rootViewController: UIViewController())
 
@@ -25,7 +25,7 @@ class MainViewController: UITabBarController {
         let couponController = templateNavController(unselectedImage: #imageLiteral(resourceName: "discount"), selectedImage: #imageLiteral(resourceName: "discount"), rootViewController: UIViewController())
         
         tabBar.tintColor = .black
-        viewControllers = [homeController, menuController, locationController, couponController]
+        viewControllers = [featuredController, menuController, locationController, couponController]
         tabBar.items?[0].title = "Featured"
         tabBar.items?[1].title = "The Menu"
         tabBar.items?[2].title = "Locations"
