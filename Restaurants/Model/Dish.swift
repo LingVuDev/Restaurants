@@ -9,34 +9,12 @@
 import Foundation
 
 struct Dish {
-    enum Category {
-        case friedRice
-        case friedNoodle
-        case pork
-        case beef
-        case duck
-        case fish
-        case vietnamese
-        case soup
-        case starter
-        case salat
-        case seafood
-        case special
-        case kids
-        case vegan
-        case sushi
-    }
-    
-    enum Allergy {
-        case nuts
-        case egg
-        case fruits
-    }
-    
     let name: String
-    let category: Category
+    let categories: [MenuCategory]
     let decription: String
     let price: Double
-    let imageUrl: URL
-    let allergy: [Allergy]
+    let imageUrl: URL?
+    let rating: Double
+    let allergy: [String]?
+
 }

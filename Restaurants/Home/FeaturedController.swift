@@ -11,6 +11,23 @@ import UIKit
 class FeaturedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let cellId = "cellId"
+    public let groupDishes: [[Dish]] = [
+        [
+            Dish(name: "Steak", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil),
+            Dish(name: "Schnitzel", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil),
+            Dish(name: "Ente", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil)
+        ],
+        [
+            Dish(name: "Broccoli", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil),
+            Dish(name: "Bambus", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil),
+            Dish(name: "Soja", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil)
+        ],
+        [
+            Dish(name: "Eiscreme", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil),
+            Dish(name: "Kuchen", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil),
+            Dish(name: "Torte", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil)
+        ]
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +40,8 @@ class FeaturedController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CategoryCell {
+            cell.delegate = self
+            cell.dishes = groupDishes[indexPath.item]
             return cell
         }
         return UICollectionViewCell()
@@ -37,4 +56,11 @@ class FeaturedController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     
+}
+
+extension FeaturedController: CategoryCellDelegate {
+    func didSelectDish(dish: Dish) {
+        let controller = DishController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

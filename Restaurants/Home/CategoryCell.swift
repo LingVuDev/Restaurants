@@ -9,7 +9,18 @@
 import UIKit
 import Cosmos
 
+protocol CategoryCellDelegate {
+    func didSelectDish(dish: Dish)
+}
+
 class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    public var dishes: [Dish]? {
+        didSet {
+            print(dishes![0].name)
+        }
+    }
+    public var delegate: CategoryCellDelegate?
     
     private let cellId = "cellId"
     
@@ -70,7 +81,25 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     }
 }
 
+extension CategoryCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("In dish selection ", indexPath)
+        
+        let demoDish = Dish(name: "Steak", categories: [demoCategory], decription: "", price: 10.0, imageUrl: nil, rating: 5, allergy: nil)
+        
+        self.delegate?.didSelectDish(dish: dishes?[indexPath.item] ?? demoDish)
+    }
+}
+
 class FeaturedCell: UICollectionViewCell {
+    
+    public var dish: Dish? {
+        didSet {
+            
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -87,7 +116,7 @@ class FeaturedCell: UICollectionViewCell {
         return view
     }()
     
-    let mealView: UIImageView = {
+    let mealImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "demoFood"))
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -112,8 +141,6 @@ class FeaturedCell: UICollectionViewCell {
     
     lazy var ratingView: CosmosView = {
         let cosmosView = CosmosView()
-//        cosmosView.settings.filledImage = #imageLiteral(resourceName: "starFilled").withRenderingMode(.alwaysOriginal)
-//        cosmosView.settings.emptyImage = #imageLiteral(resourceName: "star").withRenderingMode(.alwaysOriginal)
         cosmosView.settings.fillMode = .precise
         cosmosView.settings.totalStars = 5
         cosmosView.settings.starSize = 14
@@ -133,11 +160,15 @@ class FeaturedCell: UICollectionViewCell {
     }()
     
     func setupViews() {
+        
+        guard let dish = dish else { return }
+        
         addSubview(containerView)
         containerView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 4, paddingBottom: 4, paddingRight: 4, width: 0, height: 0)
         
-        containerView.addSubview(mealView)
-        mealView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        containerView.addSubview(mealImageView)
+        mealImageView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
         
         containerView.addSubview(informationFrameView)
         let informationFrameHeight = UIScreen.main.bounds.width / 7
@@ -145,11 +176,18 @@ class FeaturedCell: UICollectionViewCell {
         
         containerView.addSubview(nameView)
         nameView.anchor(top: informationFrameView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: (informationFrameHeight / 2))
+        var attributedText = NSMutableAttributedString()
+        attributedText.appendSlim(text: dish.name, size: 14, color: .white)
+        nameView.attributedText = attributedText
         
         containerView.addSubview(ratingView)
         ratingView.anchor(top: nameView.bottomAnchor, left: nameView.leftAnchor, bottom: informationFrameView.bottomAnchor, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8, width: 0, height: 0)
+        ratingView.rating = dish.rating
         
         containerView.addSubview(priceLabel)
         priceLabel.anchor(top: nameView.bottomAnchor, left: ratingView.rightAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8, width: 0, height: 0)
+        attributedText = NSMutableAttributedString()
+        attributedText.appendBold(text: "\(dish.price) €", size: 14, color: .white)
+        priceLabel.attributedText = attributedText
     }
 }

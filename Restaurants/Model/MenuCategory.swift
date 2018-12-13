@@ -8,10 +8,9 @@
 
 import Foundation
 
-struct Menu {
+struct MenuCategory {
     let name: String
-    let category: String
     let description: String
-    let dishes: [Dish]
-    
 }
+
+let demoCategory = MenuCategory(name: "Meat", description: "Just best meat, from the whole world.")
