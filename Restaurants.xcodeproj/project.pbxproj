@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D89407E21C98E2700158387 /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D89407D21C98E2700158387 /* ImageHeaderView.swift */; };
 		3D8E4B0E21B5D71B0088580B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B0D21B5D71B0088580B /* AppDelegate.swift */; };
 		3D8E4B1021B5D71B0088580B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B0F21B5D71B0088580B /* MainViewController.swift */; };
 		3D8E4B1621B5D71B0088580B /* Restaurants.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E4B1421B5D71B0088580B /* Restaurants.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0B8A57BF1275E324238EE7E8 /* Pods_Restaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DFAA85AD1E69185E6211F /* Pods-Restaurants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurants.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Restaurants/Pods-Restaurants.debug.xcconfig"; sourceTree = "<group>"; };
+		3D89407D21C98E2700158387 /* ImageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
 		3D8E4B0A21B5D71B0088580B /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8E4B0D21B5D71B0088580B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8E4B0F21B5D71B0088580B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				44E643F921BC0EF5002D82EC /* DishController.swift */,
+				3D89407D21C98E2700158387 /* ImageHeaderView.swift */,
 			);
 			path = SingleDish;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				3D8E4B1021B5D71B0088580B /* MainViewController.swift in Sources */,
 				3D8E4B3521B646170088580B /* UIView+Anchor.swift in Sources */,
 				3D8E4B3E21B8F3D40088580B /* AttributedString+append.swift in Sources */,
+				3D89407E21C98E2700158387 /* ImageHeaderView.swift in Sources */,
 				3D8E4B0E21B5D71B0088580B /* AppDelegate.swift in Sources */,
 				3D8E4B3C21B8F3280088580B /* Colors.swift in Sources */,
 				44E643FC21BC12F4002D82EC /* MenuCategory.swift in Sources */,
