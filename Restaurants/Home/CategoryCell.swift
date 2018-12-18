@@ -33,6 +33,17 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         fatalError("init(coder:) has not been implemented")
     }
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        let attributedText = NSMutableAttributedString()
+        attributedText.appendBold(text: "Unsere Neuheiten\n", size: 16)
+        attributedText.appendBold(text: "Exotisch, gleich probieren!", size: 16)
+        label.attributedText = attributedText
+        
+        return label
+    }()
+    
     let featuresCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -56,9 +67,11 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         addSubview(dividerView)
         dividerView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 2)
         
+        addSubview(titleLabel)
+        titleLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
         
         addSubview(featuresCollectionView)
-        featuresCollectionView.anchor(top: topAnchor, left: leftAnchor, bottom: dividerView.topAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 8, paddingRight: 0, width: 0, height: 0)
+        featuresCollectionView.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: dividerView.topAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 8, paddingRight: 0, width: 0, height: 0)
         
         featuresCollectionView.dataSource = self
         featuresCollectionView.delegate = self
@@ -66,11 +79,12 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return dishes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? FeaturedCell {
+            cell.dish = dishes?[indexPath.item]
             return cell
         }
         return UICollectionViewCell()
@@ -96,7 +110,7 @@ class FeaturedCell: UICollectionViewCell {
     
     public var dish: Dish? {
         didSet {
-            
+            setupViews()
         }
     }
     
@@ -129,13 +143,12 @@ class FeaturedCell: UICollectionViewCell {
         return view
     }()
     
-    let nameView: UITextView = {
-        let textView = UITextView()
+    let nameView: UILabel = {
+        let textView = UILabel()
         let attributedText = NSMutableAttributedString()
         attributedText.appendSlim(text: "Steak with fries\n", size: 14, color: .white)
         textView.attributedText = attributedText
         textView.backgroundColor = .clear
-        textView.isScrollEnabled = false
         return textView
     }()
     
